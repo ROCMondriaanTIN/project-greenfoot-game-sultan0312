@@ -10,6 +10,7 @@ public class Hero extends Mover {
     private final double gravity;
     private final double acc;
     private final double drag;
+    public String activeWorld = "";
 
     public Hero() {
         super();
@@ -18,9 +19,9 @@ public class Hero extends Mover {
         drag = 0.8;
         setImage("p1.png");
     }
-
     @Override
-    public void act() {
+    public void act() 
+    {
         handleInput();
         
         velocityX *= drag;
@@ -29,32 +30,48 @@ public class Hero extends Mover {
             velocityY = gravity;
         }
         applyVelocity();
-
-        for (Actor enemy : getIntersectingObjects(Enemy.class)) {
+        
+        for (Actor WaterTile: getObjectsInRange(50, WaterTile.class))
+        {
+        if (activeWorld == "MyWorld" && WaterTile!= null && WaterTile instanceof WaterTile) {
+                //getworld().removeObject(this);
+                    setLocation(204, 3433);
+                    return;
+            }
+        break;
+        }
+            for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 getWorld().removeObject(this);
                 break;
             }
         }
     }
-
-    public void handleInput() {
-        if (Greenfoot.isKeyDown("w")) {
-            velocityY = -20;
+        public void handleInput() 
+       {
+        if (Greenfoot.isKeyDown("w")) 
+        {
+            velocityY = -12;
         }
 
-        if (Greenfoot.isKeyDown("a")) {
-            velocityX = -2;
-        } else if (Greenfoot.isKeyDown("d")) {
-            velocityX = 2;
+        if (Greenfoot.isKeyDown("a"))
+		{
+            velocityX = -9;
+        } 
+        else if (Greenfoot.isKeyDown("d")) 
+		{
+            velocityX = 9;
         }
-    }
-
-    public int getWidth() {
+       }
+    
+    public int getWidth() 
+    {
         return getImage().getWidth();
     }
 
-    public int getHeight() {
+    public int getHeight()
+    {
         return getImage().getHeight();
     }
+
 }
