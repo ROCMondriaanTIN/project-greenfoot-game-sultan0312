@@ -93,7 +93,7 @@ public class Hero extends Mover {
                 doubleJump = 0;
             }
         if (keyLeft() && keyRight() == false) {
-            velocityX = -12;
+            velocityX = -14;
             direction = 1;
             if (animationTimer % animationTimerFrame == 0
                     && velocityY == 0) {
@@ -102,7 +102,7 @@ public class Hero extends Mover {
             animationTimer++;
         }
         if (keyRight() && keyLeft() == false) {
-            velocityX = 12;
+            velocityX = 14;
             direction = 2;
             if (animationTimer % animationTimerFrame == 0
                     && velocityY == 0) {
