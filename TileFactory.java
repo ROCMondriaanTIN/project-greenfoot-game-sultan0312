@@ -739,6 +739,18 @@ public class TileFactory {
             tile = new Tile("stoneRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
               tile.isSolid = true;
             break;
+             case 181:
+            tile = new Tile("spikesUp.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+              tile.isSolid = true;
+            break;
+             case 182:
+            tile = new Tile("spikesLeft.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+              tile.isSolid = true;
+            break;
+             case 183:
+            tile = new Tile("spikesRight.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
+              tile.isSolid = true;
+            break;
             default:
                 tile = new Tile("grassMid.png", TileEngine.TILE_WIDTH, TileEngine.TILE_HEIGHT);
                 tile.isSolid = true;

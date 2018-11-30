@@ -20,6 +20,8 @@ public class Hero extends Mover {
     int kleur = 1;
     int direction = 2;
     int doubleJump = 0;
+    int x= 124;
+    int y= 214 ;
     
     public Hero() {
         super();
@@ -40,7 +42,9 @@ public class Hero extends Mover {
     {
         handleInput();
         getBruinMunt();
-        
+        spike();
+        positie();
+        Checkpoint();
         velocityX *= drag;
         velocityY += acc;
         if (velocityY > gravity) {
@@ -49,19 +53,22 @@ public class Hero extends Mover {
         applyVelocity();
         for (Actor Spikes : getIntersectingObjects(Spikes.class)) { 
             if (Spikes!=null){
-                getWorld().removeObject(this);
+                //getWorld().removeObject(this);
+                setLocation(429, 1335);
                 return;
             }
         }
         for (Actor Lava : getIntersectingObjects(Lava.class)) { 
             if (Lava!=null){
-                getWorld().removeObject(this);
+                //getWorld().removeObject(this);
+                setLocation(429, 1335);
                 return;
             }
         }
         for (Actor Water : getIntersectingObjects(Water.class)) { 
             if (Water!=null){
-                getWorld().removeObject(this);
+                //getWorld().removeObject(this);
+                setLocation(429, 1335);
                 return;
             }
         }
@@ -69,15 +76,16 @@ public class Hero extends Mover {
         for (Actor WaterTile: getObjectsInRange(50, WaterTile.class))
         {
         if (activeWorld == "MyWorld" && WaterTile!= null && WaterTile instanceof WaterTile) {
-                //getworld().removeObject(this);
-                    setLocation(204, 3433);
-                    return;
-            }
+            //getworld().removeObject(this);
+            setLocation(429, 1335);
+            return;
+        }
         break;
         }
             for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
-                getWorld().removeObject(this);
+                //getWorld().removeObject(this);
+                setLocation(429, 1335);
                 break;
             }
         }
@@ -86,15 +94,16 @@ public class Hero extends Mover {
              
         animateJump();
         animateStanding();
+        
             if (keyUp() && velocityY == 0) {
-                velocityY = -19;
+                velocityY = -16;
                 doubleJump ++;
             } else {
                 doubleJump = 0;
             }
         if (keyLeft() && keyRight() == false) {
-            velocityX = -14;
-            direction = 1;
+            velocityX = -10;
+            direction = 2;
             if (animationTimer % animationTimerFrame == 0
                     && velocityY == 0) {
                 animate();
@@ -102,7 +111,7 @@ public class Hero extends Mover {
             animationTimer++;
         }
         if (keyRight() && keyLeft() == false) {
-            velocityX = 14;
+            velocityX = 10;
             direction = 2;
             if (animationTimer % animationTimerFrame == 0
                     && velocityY == 0) {
@@ -111,6 +120,7 @@ public class Hero extends Mover {
             animationTimer++;
 
         }
+        
     }
     public void animate() {
         if (frame == 1) {
@@ -122,7 +132,26 @@ public class Hero extends Mover {
         }
         frame++;
     }
-
+    public void spike()
+    
+    
+    {
+        if(isTouching(Spikes.class))
+        {
+            setLocation(1000, 2238);
+        }
+      
+        
+        
+    }
+    public void Checkpoint(){
+    if (isTouching(Checkpoint.class)){
+        x= getX();
+        y= getY();
+        
+        
+        }
+    }
     public void animateJump() {
         if (velocityY != 0) {
             setImage("alien" + kleur + "_jump" + direction + ".png");
@@ -168,4 +197,9 @@ public class Hero extends Mover {
         boolean keyRight = Greenfoot.isKeyDown("right");
         return keyRight;
     }
+    public String positie(){
+        String k = "X"+getX()+" "+"Y"+getY();
+        return k;
+        
+        }
 }
