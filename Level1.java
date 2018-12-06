@@ -14,10 +14,10 @@ public class Level1 extends World {
      */
     public Level1() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1620, 880, 1, false);
-        this.setBackground("bg.png");
+        super(1100, 880, 1, false);
+          this.setBackground("bg.png");
 
-        int[][] map = {
+     int[][] map = {
   {181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181,181},
 {182,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,183},
 {182,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,183},
@@ -69,13 +69,42 @@ public class Level1 extends World {
         // Alle objecten toevoegen aan de wereld: camera, main karakter en mogelijke enemies
         addObject(camera, 0, 0);
         addObject(hero, 429, 1335);
-        addObject(new Enemy(), 1170, 410);
-        addObject(new Enemy(), 1350, 410);
-        addObject(new Enemy(),1345, 1450);
-        addObject(new Checkpoint(),1360, 1450);
+      
         
-        addObject(new BruinMunt(),3000,2400);
-        addObject(new BruinMunt(),3300,2400);
+        Enemy enemy1 = new Enemy();
+        addObject(enemy1,1170, 410);
+        
+        Enemy enemy2 = new Enemy();
+        addObject(enemy2,1350, 410);
+        
+        Enemy enemy3 = new Enemy();
+        addObject(enemy3,1345, 1450);
+        
+      
+        
+        
+       Checkpoint cp=new Checkpoint();
+       addObject(cp,1321, 735);
+       
+       //Checkpoint cp2=new Checkpoint();
+       //addObject(cp2,1321, 735);
+        
+        addObject(new BruinMunt(),917,615);
+        addObject(new BruinMunt(),1339,710);
+        addObject(new BruinMunt(),1713,495);
+        addObject(new BruinMunt(),1762,495);
+        addObject(new BruinMunt(),1807,495);
+        addObject(new BruinMunt(),2135,855);
+        addObject(new BruinMunt(),2193,915);
+        BruineMuntTeller bmt= new BruineMuntTeller();
+        addObject(bmt,130, 120);
+        //addObject(new BruinMunt(),1713,495);
+        //addObject(new BruinMunt(),1713,495);
+        //addObject(new BruinMunt(),1713,495);
+        
+        
+        
+        
         
         // Force act zodat de camera op de juist plek staat.
         camera.act();

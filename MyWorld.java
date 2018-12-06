@@ -14,7 +14,7 @@ public class MyWorld extends World {
      */
     public MyWorld() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1620, 880, 1, false);
+        super(1100, 800, 1, false);
         this.setBackground("bg.png");
 
         int[][] map = {
@@ -100,7 +100,7 @@ public class MyWorld extends World {
         addObject(camera, 0, 0);
         addObject(hero, 204, 3433);
         addObject(new Enemy(), 1170, 410);
-        addObject(new Enemy(), 1350, 410);
+       
         
         addObject(new BruinMunt(),3000,2400);
         addObject(new BruinMunt(),3300,2400);

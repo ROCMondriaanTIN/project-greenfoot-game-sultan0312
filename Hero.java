@@ -54,21 +54,24 @@ public class Hero extends Mover {
         for (Actor Spikes : getIntersectingObjects(Spikes.class)) { 
             if (Spikes!=null){
                 //getWorld().removeObject(this);
-                setLocation(429, 1335);
+                //Greenfoot.setWorld(new Level2());
+                setLocation(x,y);
                 return;
             }
         }
         for (Actor Lava : getIntersectingObjects(Lava.class)) { 
             if (Lava!=null){
                 //getWorld().removeObject(this);
-                setLocation(429, 1335);
+               // Greenfoot.setWorld(new Level2());
+                setLocation(x,y);
                 return;
             }
         }
         for (Actor Water : getIntersectingObjects(Water.class)) { 
             if (Water!=null){
                 //getWorld().removeObject(this);
-                setLocation(429, 1335);
+                //Greenfoot.setWorld(new Level2());
+                setLocation(x,y);
                 return;
             }
         }
@@ -77,7 +80,8 @@ public class Hero extends Mover {
         {
         if (activeWorld == "MyWorld" && WaterTile!= null && WaterTile instanceof WaterTile) {
             //getworld().removeObject(this);
-            setLocation(429, 1335);
+            //Greenfoot.setWorld(new Level2());
+            setLocation(x,y);
             return;
         }
         break;
@@ -85,7 +89,8 @@ public class Hero extends Mover {
             for (Actor enemy : getIntersectingObjects(Enemy.class)) {
             if (enemy != null) {
                 //getWorld().removeObject(this);
-                setLocation(429, 1335);
+               // Greenfoot.setWorld(new Level2());
+               setLocation(x,y);
                 break;
             }
         }
@@ -138,7 +143,7 @@ public class Hero extends Mover {
     {
         if(isTouching(Spikes.class))
         {
-            setLocation(1000, 2238);
+            setLocation(x, y);
         }
       
         
@@ -148,8 +153,6 @@ public class Hero extends Mover {
     if (isTouching(Checkpoint.class)){
         x= getX();
         y= getY();
-        
-        
         }
     }
     public void animateJump() {
